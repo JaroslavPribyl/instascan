@@ -45,6 +45,7 @@
   "dependencies": {
     "babel-runtime": "^6.26.0",
     "fsm-as-promised": "^0.14.5",
+    "gulp-umd": "^2.0.0",
     "visibilityjs": "^1.2.4"
   }
 }

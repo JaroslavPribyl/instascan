@@ -7,6 +7,7 @@ var uglify = require('gulp-uglify');
 var babelify = require('babelify');
 var babel = require('gulp-babel');
 var transform = require('gulp-transform');
+var umd = require('gulp-umd');
 
 var babelOptions = {
   ignore: /zxing\.js$/i,
@@ -52,6 +53,7 @@ gulp.task('release', ['build-package'], function () {
   return build('./export.js')
     .pipe(buffer())
     .pipe(uglify())
+    .pipe(umd())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('./dist/'));
 });
