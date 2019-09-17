@@ -52,7 +52,31 @@ gulp.task('build', ['build-package'], function () {
 gulp.task('release', ['build-package'], function () {
   return build('./export.js')
     .pipe(buffer())
-    .pipe(uglify())
+    .pipe(uglify({
+         parse: {
+            // parse options
+        },
+        compress:{
+            // compress options
+        },
+        mangle: false /*{
+            // mangle options
+
+            properties: {
+                // mangle property options
+            }
+        }*/,
+        output: {
+            // output options
+        },
+        sourceMap: {
+            // source map options
+        },
+        nameCache: null, // or specify a name cache object
+        toplevel: false,
+        ie8: false,
+        warnings: "verbose"
+    }))
     .pipe(umd())
     .pipe(rename({ suffix: '.min' }))
     .pipe(gulp.dest('./dist/'));
