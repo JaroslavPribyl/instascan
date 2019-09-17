@@ -1,13 +1,14 @@
 {
   "name": "instascan-umd-webpack",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Fork of Webcam-driven QR code scanner with umd and webpack support, incuding the iOS 11 rear camera fix.",
   "main": "lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "files": [
-    "src/"
+    "src/",
+    "index.js"
   ],
   "repository": {
     "type": "git",
@@ -48,6 +49,7 @@
   },
   "dependencies": {
     "fsm-as-promised": "^0.14.5",
-    "visibilityjs": "^1.2.4"
+    "visibilityjs": "^1.2.4",
+    "webrtc-adapter": "^1.4.0"
   }
 }
