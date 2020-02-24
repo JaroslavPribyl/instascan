@@ -44,12 +44,17 @@ gulp.task('build-package', function () {
     .pipe(gulp.dest('./lib/'));
 });
 
-gulp.task('build', ['build-package'], function () {
+gulp.task('copy_dts', function () {
+  return gulp.src('./definitions/*.d.ts')
+    .pipe(gulp.dest('./dist/'));
+});
+
+gulp.task('build', ['build-package', 'copy_dts'], function () {
   return build('./export.js')
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('release', ['build-package'], function () {
+gulp.task('release', ['build-package', 'copy_dts'], function () {
   return build('./export.js')
     .pipe(buffer())
     .pipe(uglify({
