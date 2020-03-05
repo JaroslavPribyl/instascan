@@ -22,11 +22,12 @@ export interface IScanner {
     stop(): Promise<any>;
 
     scan(): any;
+
+    new(settings:any) : IScanner;
 }
 
 export default interface IInstascan {
     Camera: ICamera;
-    Scanner(settings:any): IScanner;
+    Scanner: IScanner;
     new () : IInstascan;
 }
-
